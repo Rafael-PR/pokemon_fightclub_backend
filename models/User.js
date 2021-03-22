@@ -4,12 +4,10 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const userSchema = new Schema({
+    username: {type: String, min: 3, max: 15, required: true},
     email: {type: String, min: 5, max: 50, required: true, unique: true},
-    password: {type: String, min: 5, max: 30, required: true},
-    myPokemonId: { type: Number, required: true},
-    enemyPokemonId: { type: Number, required: true},
-    winner: { type: Boolean, required: true },
-    last_updated: {type: Date, default: Date.now }
+    password: {type: String, min: 3, max: 30, required: true},
+    game: [{type: Schema.ObjectId, ref: 'Game'}]
 })
 
 // userSchema.methods.createToken = function () {

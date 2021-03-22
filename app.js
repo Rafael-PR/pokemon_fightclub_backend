@@ -9,7 +9,7 @@ const cors = require('cors')
 
 var indexRouter = require('./routes/indexRouter');
 const pokemonsRouter = require('./routes/pokemonRouter');
-const userRouter = require('./routes/userRouter')
+const boardRouter = require('./routes/boardRouter')
 
 var app = express();
 
@@ -22,6 +22,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/pokemons', pokemonsRouter);
-app.use('/users', userRouter)
+app.use('/users', boardRouter)
 
 module.exports = app;
