@@ -31,9 +31,9 @@ exports.getAllGames = async (req, res, next) => {
 }
 
 exports.createGame = async (req, res, next) => {
-    const { user, myPokemonId, enemyPokemonId, winner } = req.body
-    if (!user || !myPokemonId || !enemyPokemonId || !winner) return res.status(400).send('Unable to create the game')
-    let newGame = new Game({ user, myPokemonId, enemyPokemonId, winner })
+    const { user, myPokemonName, enemyPokemonName, winner } = req.body
+    if (!user || !myPokemonName || !enemyPokemonName || !winner) return res.status(400).send('Unable to create the game')
+    let newGame = new Game({ user, myPokemonName, enemyPokemonName, winner })
     try {
         await newGame.save()
         await User.findByIdAndUpdate(user, {$push: {game: newGame._id} })
