@@ -10,7 +10,7 @@ exports.getId = (req, res) => {
         const pokemon = pokeData.find(poke => poke.id === parseInt(id, 10)) 
         res.json(pokemon)
     } catch (e) {
-        return res.status(404).send('That pokemon is not in the database' + e.message)
+        return res.status(404).send('No such pokemon' + e.message)
     }
 }
 
